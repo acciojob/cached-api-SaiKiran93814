@@ -1,4 +1,4 @@
-// index.js (React 16 compatible)
+import 'regenerator-runtime/runtime';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
