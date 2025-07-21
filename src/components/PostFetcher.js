@@ -8,10 +8,9 @@ const PostFetcher = ({ userId }) => {
     return async () => {
       setLoading(true);
       try {
-       const url = userId
-  ? `https://jsonplaceholder.typicode.com/posts?userId=${userId}`
-  : 'https://jsonplaceholder.typicode.com/posts';
-
+        const url = userId
+          ? `https://jsonplaceholder.typicode.com/posts?userId=${userId}`
+          : `https://jsonplaceholder.typicode.com/posts`;
         const response = await fetch(url);
         const data = await response.json();
         setPosts(data);
@@ -35,9 +34,9 @@ const PostFetcher = ({ userId }) => {
         <p>Loading...</p>
       ) : (
         <ul style={styles.list}>
-          {posts.map(post => (
+          {posts.map((post) => (
             <li key={post.id} style={styles.listItem}>
-              <strong>{post.title}</strong>
+              <h4>{post.title}</h4> {/* Match Cypress expectation */}
               <p style={styles.body}>{post.body}</p>
             </li>
           ))}
@@ -54,7 +53,7 @@ const styles = {
     padding: '1rem',
     fontFamily: 'Arial, sans-serif',
     overflowY: 'auto',
-    height: '80vh', // scrollable view
+    height: '80vh',
     border: '1px solid #ddd',
     borderRadius: '8px',
   },
